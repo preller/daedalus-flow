@@ -1,0 +1,2 @@
+# Reads the dataset once and hands the values to every branch.
+role: transform   # the brancher: one input folder, four onward branches

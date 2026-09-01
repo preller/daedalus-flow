@@ -1,0 +1,24 @@
+# EditorConfig (https://editorconfig.org): baseline whitespace hygiene,
+# matching the pre-commit end-of-file-fixer / trailing-whitespace hooks.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+[*.{yaml,yml,toml,json}]
+indent_size = 2
+
+[justfile]
+indent_size = 4
+
+[*.md]
+# Markdown uses trailing double-space line breaks.
+trim_trailing_whitespace = false

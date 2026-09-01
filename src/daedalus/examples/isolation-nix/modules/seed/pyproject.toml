@@ -1,0 +1,11 @@
+[project]
+name = "isolation-nix-seed"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = []
+
+# A uv virtual project (package = false). uv2nix builds a deps-only environment,
+# so this stdlib-only module gets a minimal nix env with just Python: no build
+# step and no third-party libraries.
+[tool.uv]
+package = false

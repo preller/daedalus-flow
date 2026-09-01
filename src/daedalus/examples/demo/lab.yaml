@@ -1,0 +1,29 @@
+# A lab recipe lists the modules to run and how they depend on each other.
+# daedalus works out the run order and executes each one. Input is read from
+# this lab's input/ folder by default.
+name: demo
+
+# How many steps may run at once. The two fits are independent, so 2 runs them
+# side by side. Above 1, each module also runs in its own uv environment built
+# from its requirements.txt, which installs this lab's numpy dependency.
+max_workers: 2
+
+# Each entry names a module directory (under modules/) by its id, plus the
+# modules it depends on. The id is also how other modules refer to it below.
+modules:
+  - id: emit_targets
+
+  - id: fetch_data
+    depends: [emit_targets]
+
+  - id: fit_nested
+    depends: [fetch_data]
+
+  - id: fit_mcmc
+    depends: [fetch_data]
+
+  - id: compare_methods
+    depends: [fit_nested, fit_mcmc]
+
+  - id: summarize_population
+    depends: [compare_methods]

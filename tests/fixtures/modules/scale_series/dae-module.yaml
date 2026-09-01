@@ -1,0 +1,2 @@
+# Scales a series of values by a fixed integer factor.
+role: transform   # reads one input folder, writes one output folder

@@ -1,0 +1,1 @@
+role: transform   # fans into agg + t1 + t2: 2 non-aggregator successors -> brancher

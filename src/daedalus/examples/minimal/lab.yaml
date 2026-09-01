@@ -1,0 +1,8 @@
+# A lab recipe lists the modules to run and how they depend on each other.
+# daedalus works out the run order and executes each one. Input is read from
+# this lab's input/ folder by default.
+name: minimal
+
+# The single module normalizes one raw light curve.
+modules:
+  - id: normalize

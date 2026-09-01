@@ -1,0 +1,11 @@
+# fit_nested depends on fit_mcmc and fit_mcmc depends back on fit_nested, so the
+# modules form a cycle and there is no run order. A lab must be a DAG, and
+# `dae lab validate` must reject this.
+name: broken-cyclic
+
+modules:
+  - id: fit_nested
+    depends: [fit_mcmc]
+
+  - id: fit_mcmc
+    depends: [fit_nested]

@@ -1,0 +1,7 @@
+# Right branch. Renders the word under the newer pinned pyfiglet (1.0.4).
+role: transform
+
+# This module ships its own flake.nix beside it, so under nix it builds from that
+# flake rather than the stock template. The ladder [nix, uv] prefers nix and
+# accepts uv when the lab policy forbids nix; under `auto` it resolves to nix.
+isolation: [nix, uv]

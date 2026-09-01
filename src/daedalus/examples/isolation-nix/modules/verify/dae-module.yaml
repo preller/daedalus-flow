@@ -1,0 +1,2 @@
+# Waits for both branches, then proves they ran under different pinned versions.
+role: walk_collector   # the barrier: converges the two render Walks

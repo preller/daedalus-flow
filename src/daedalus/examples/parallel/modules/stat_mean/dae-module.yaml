@@ -1,0 +1,2 @@
+# One fan-out branch; computes the mean value.
+role: transform

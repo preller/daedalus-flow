@@ -1,0 +1,18 @@
+# nested_join: nested branchers with per-level walk_collectors; M=4.
+#
+# Roles live in each module's dae-module.yaml.
+name: nested_join
+modules:
+  - id: src
+  - id: mid
+    depends: [src]
+  - id: side
+    depends: [src]
+  - id: sub_a
+    depends: [mid]
+  - id: sub_b
+    depends: [mid]
+  - id: sub_join
+    depends: [sub_a, sub_b]
+  - id: top_join
+    depends: [sub_join, side]

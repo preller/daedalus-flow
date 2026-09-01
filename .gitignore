@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Build / publish artifacts
+build/
+dist/
+*.whl
+
+# Virtual environment
+.venv/
+
+# direnv (copy .envrc.defaults to .envrc and `direnv allow` to load the flake dev shell)
+.direnv/
+.envrc
+
+# Tooling caches
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.import_linter_cache/
+.cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Generated engine output (a `dae lab run` writes these into its cwd)
+dae-outputs/
+.daedalus/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*~
+
+# Sphinx docs build output + generated AutoAPI pages (autoapi_root = "api")
+docs/_build/
+docs/api/

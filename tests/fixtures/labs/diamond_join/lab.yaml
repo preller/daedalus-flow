@@ -1,0 +1,20 @@
+# diamond_join: seed fans out into two branches, left and right, and join
+# converges them. The smallest multi-depends DAG; it shows an aggregator waits
+# for all of its dependencies before it runs.
+name: diamond_join
+
+# Each entry names a module directory under modules/ by its id, plus the
+# modules it depends on. Roles live in each module's dae-module.yaml.
+modules:
+  # One value out of the lab input.
+  - id: seed
+
+  # Two parallel branches, each off the same seed.
+  - id: left
+    depends: [seed]
+  - id: right
+    depends: [seed]
+
+  # Converges both branches; waits for left and right.
+  - id: join
+    depends: [left, right]

@@ -1,0 +1,2 @@
+# Fits the same transit signal using MCMC.
+role: transform   # reads one input folder, writes one output folder

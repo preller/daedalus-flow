@@ -1,0 +1,15 @@
+# cross_level_merge: walk_collector over inner branch leaves plus an outer sibling (two levels).
+# validate refuses this lab before any module body is read.
+name: cross_level_merge
+modules:
+  - id: src
+  - id: mid
+    depends: [src]
+  - id: side
+    depends: [src]
+  - id: sub_a
+    depends: [mid]
+  - id: sub_b
+    depends: [mid]
+  - id: join
+    depends: [sub_a, sub_b, side]

@@ -1,0 +1,20 @@
+# series_diamonds: a diamond feeding a diamond (collector output feeds a new brancher); M=2.
+#
+# Roles live in each module's dae-module.yaml.
+name: series_diamonds
+modules:
+  - id: src
+  - id: a1
+    depends: [src]
+  - id: a2
+    depends: [src]
+  - id: join1
+    depends: [a1, a2]
+  - id: mid
+    depends: [join1]
+  - id: b1
+    depends: [mid]
+  - id: b2
+    depends: [mid]
+  - id: join2
+    depends: [b1, b2]

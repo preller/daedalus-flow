@@ -1,0 +1,10 @@
+# lone_agg is a flight_collector with no depends, so it is the lab's source. A
+# collector converges upstream outputs and a source has none, so `dae lab
+# validate` must refuse it through the parse_error outcome.
+
+# A flight_collector, not a walk_collector, so walk_collector_solo (under two
+# parents) cannot fire first and the collector-as-source refusal is the one seen.
+name: flight_collector_source
+
+modules:
+  - id: lone_agg

@@ -1,0 +1,2 @@
+# Compares method divergence across both targets; carries plots forward.
+role: flight_collector   # combines the per-target results across every target

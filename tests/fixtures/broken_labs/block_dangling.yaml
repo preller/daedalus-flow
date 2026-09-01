@@ -1,0 +1,13 @@
+# normalize depends on fetch_data, which is not declared here. The same defect as
+# dangling_dep.yaml, written as a block-style YAML list under `depends:`, so
+# `dae lab validate` must reject this one too.
+name: broken-block-dangling
+
+modules:
+  - id: emit_a
+    role: emitter
+
+  - id: normalize
+    depends:
+      - emit_a
+      - fetch_data

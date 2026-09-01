@@ -1,0 +1,16 @@
+# asym_join: unbalanced branches (1 module vs 3) into one walk_collector; M=2.
+#
+# Roles live in each module's dae-module.yaml.
+name: asym_join
+modules:
+  - id: src
+  - id: quick
+    depends: [src]
+  - id: slow_a
+    depends: [src]
+  - id: slow_b
+    depends: [slow_a]
+  - id: slow_c
+    depends: [slow_b]
+  - id: join
+    depends: [quick, slow_c]

@@ -1,0 +1,13 @@
+# Boundary fixture (complex_into_two_collectors): a cross-cutting shape the walk model
+# refuses (the v3 gather-without-merge boundary). Refused at validate.
+name: complex_into_two_collectors
+modules:
+  - id: src
+  - id: b1
+    depends: [src]
+  - id: b2
+    depends: [src]
+  - id: coll_x
+    depends: [b1, b2]
+  - id: coll_y
+    depends: [b1]

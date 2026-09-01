@@ -1,0 +1,64 @@
+# The complex example puts every legal walk-model building block in one lab:
+# nested branch and collect levels, sibling and token-solo collectors, and an
+# emitter to flight collector frame. Module ids name the shape each node plays.
+name: complex
+modules:
+  - id: emit
+  - id: prep
+    depends: [emit]
+  - id: branch_x
+    depends: [prep]
+  - id: branch_y
+    depends: [prep]
+  - id: x_leaf
+    depends: [branch_x]
+  - id: x_mid
+    depends: [branch_x]
+  - id: x_deep
+    depends: [branch_x]
+  - id: y_leaf
+    depends: [branch_y]
+  - id: y_mid
+    depends: [branch_y]
+  - id: x_mid_tail
+    depends: [x_mid]
+  - id: x_deep_step
+    depends: [x_deep]
+  - id: x_deep_left
+    depends: [x_deep_step]
+  - id: x_deep_right
+    depends: [x_deep_step]
+  - id: collect_x_deep
+    depends: [x_deep_left, x_deep_right]
+  - id: y_mid_tail
+    depends: [y_mid]
+  - id: collect_x
+    depends: [x_leaf, x_mid_tail, collect_x_deep]
+  - id: collect_y
+    depends: [y_leaf, y_mid_tail]
+  - id: collect_region
+    depends: [collect_x, collect_y]
+  - id: post
+    depends: [collect_region]
+  - id: pair_left
+    depends: [post]
+  - id: pair_right
+    depends: [post]
+  - id: join_pair
+    depends: [pair_left, pair_right]
+  - id: collect_solo
+    depends: [join_pair]
+  - id: fan
+    depends: [collect_solo]
+  - id: sib_left
+    depends: [fan]
+  - id: sib_right
+    depends: [fan]
+  - id: collect_sib_a
+    depends: [sib_left, sib_right]
+  - id: collect_sib_b
+    depends: [sib_left, sib_right]
+  - id: merge_flight
+    depends: [collect_sib_a, collect_sib_b]
+  - id: report
+    depends: [merge_flight]

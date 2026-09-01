@@ -1,0 +1,22 @@
+# brancher_mixed: a brancher is a transform with two or more non-aggregator
+# successors. split has one walk_collector and two transform successors, so it
+# is a brancher; split2 has one of each, so it is not. Only the unit tests read it.
+name: brancher_mixed
+
+# Roles live in each module's dae-module.yaml; the brancher predicate reads them there.
+modules:
+  - id: split
+
+  - id: agg
+    depends: [split]
+  - id: t1
+    depends: [split]
+  - id: t2
+    depends: [split]
+
+  - id: split2
+
+  - id: agg2
+    depends: [split2]
+  - id: t3
+    depends: [split2]

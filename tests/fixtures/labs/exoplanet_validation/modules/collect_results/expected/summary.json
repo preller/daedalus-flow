@@ -1,0 +1,861 @@
+{
+  "n_targets": 2,
+  "targets": [
+    "toi-1337b",
+    "toi-1431b"
+  ],
+  "per_target": [
+    {
+      "target": "toi-1337b",
+      "pairwise": [
+        {
+          "pair": [
+            "biased",
+            "gaussian"
+          ],
+          "depth": {
+            "wasserstein": 0.000305,
+            "energy": 0.021227929715353776,
+            "jensen_shannon": 0.8325546111405331,
+            "hellinger": 0.9485677526006362
+          },
+          "duration_h": {
+            "wasserstein": 0.41500000000000015,
+            "energy": 0.81891696770796,
+            "jensen_shannon": 0.832554611142028,
+            "hellinger": 0.9921963400848003
+          }
+        },
+        {
+          "pair": [
+            "biased",
+            "mcmc"
+          ],
+          "depth": {
+            "wasserstein": 0.00028499999999999993,
+            "energy": 0.02026388412915944,
+            "jensen_shannon": 0.832554611140533,
+            "hellinger": 0.9315087784333597
+          },
+          "duration_h": {
+            "wasserstein": 0.375,
+            "energy": 0.7685213074469698,
+            "jensen_shannon": 0.8325546111415295,
+            "hellinger": 0.9835143587649042
+          }
+        },
+        {
+          "pair": [
+            "biased",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 0.00029499999999999996,
+            "energy": 0.02075150596944713,
+            "jensen_shannon": 0.832554611140533,
+            "hellinger": 0.9405236603923789
+          },
+          "duration_h": {
+            "wasserstein": 0.39500000000000013,
+            "energy": 0.7941190087134294,
+            "jensen_shannon": 0.8325546111415296,
+            "hellinger": 0.988554472369408
+          }
+        },
+        {
+          "pair": [
+            "gaussian",
+            "mcmc"
+          ],
+          "depth": {
+            "wasserstein": 2.0000000000000052e-05,
+            "energy": 0.0022008521077073835,
+            "jensen_shannon": 0.2943525056226238,
+            "hellinger": 0.15249509354400284
+          },
+          "duration_h": {
+            "wasserstein": 0.040000000000000036,
+            "energy": 0.13578475614000288,
+            "jensen_shannon": 0.41627730557001735,
+            "hellinger": 0.29970706289579013
+          }
+        },
+        {
+          "pair": [
+            "gaussian",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 1.0000000000000026e-05,
+            "energy": 0.0011180339887498995,
+            "jensen_shannon": 0.20813865278500857,
+            "hellinger": 0.07658384801568323
+          },
+          "duration_h": {
+            "wasserstein": 0.020000000000000018,
+            "energy": 0.06959705453537537,
+            "jensen_shannon": 0.2943525056226238,
+            "hellinger": 0.15249509354400248
+          }
+        },
+        {
+          "pair": [
+            "mcmc",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 1.0000000000000026e-05,
+            "energy": 0.0011180339887498995,
+            "jensen_shannon": 0.20813865278500857,
+            "hellinger": 0.07658384801568323
+          },
+          "duration_h": {
+            "wasserstein": 0.020000000000000018,
+            "energy": 0.06959705453537537,
+            "jensen_shannon": 0.2943525056226238,
+            "hellinger": 0.15249509354400248
+          }
+        }
+      ]
+    },
+    {
+      "target": "toi-1431b",
+      "pairwise": [
+        {
+          "pair": [
+            "biased",
+            "gaussian"
+          ],
+          "depth": {
+            "wasserstein": 0.0001525,
+            "energy": 0.010613964857676888,
+            "jensen_shannon": 0.41627730557026654,
+            "hellinger": 0.4742838763003181
+          },
+          "duration_h": {
+            "wasserstein": 0.20750000000000007,
+            "energy": 0.40945848385398,
+            "jensen_shannon": 0.416277305571014,
+            "hellinger": 0.49609817004240014
+          }
+        },
+        {
+          "pair": [
+            "biased",
+            "mcmc"
+          ],
+          "depth": {
+            "wasserstein": 0.00014249999999999997,
+            "energy": 0.01013194206457972,
+            "jensen_shannon": 0.4162773055702665,
+            "hellinger": 0.46575438921667983
+          },
+          "duration_h": {
+            "wasserstein": 0.1875,
+            "energy": 0.3842606537234849,
+            "jensen_shannon": 0.41627730557076476,
+            "hellinger": 0.4917571793824521
+          }
+        },
+        {
+          "pair": [
+            "biased",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 0.00014749999999999998,
+            "energy": 0.010375752984723565,
+            "jensen_shannon": 0.4162773055702665,
+            "hellinger": 0.47026183019618945
+          },
+          "duration_h": {
+            "wasserstein": 0.19750000000000006,
+            "energy": 0.3970595043567147,
+            "jensen_shannon": 0.4162773055707648,
+            "hellinger": 0.494277236184704
+          }
+        },
+        {
+          "pair": [
+            "gaussian",
+            "mcmc"
+          ],
+          "depth": {
+            "wasserstein": 1.0000000000000026e-05,
+            "energy": 0.0011004260538536917,
+            "jensen_shannon": 0.1471762528113119,
+            "hellinger": 0.07624754677200142
+          },
+          "duration_h": {
+            "wasserstein": 0.020000000000000018,
+            "energy": 0.06789237807000144,
+            "jensen_shannon": 0.20813865278500868,
+            "hellinger": 0.14985353144789507
+          }
+        },
+        {
+          "pair": [
+            "gaussian",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 5.000000000000013e-06,
+            "energy": 0.0005590169943749497,
+            "jensen_shannon": 0.10406932639250428,
+            "hellinger": 0.038291924007841614
+          },
+          "duration_h": {
+            "wasserstein": 0.010000000000000009,
+            "energy": 0.03479852726768769,
+            "jensen_shannon": 0.1471762528113119,
+            "hellinger": 0.07624754677200124
+          }
+        },
+        {
+          "pair": [
+            "mcmc",
+            "nested"
+          ],
+          "depth": {
+            "wasserstein": 5.000000000000013e-06,
+            "energy": 0.0005590169943749497,
+            "jensen_shannon": 0.10406932639250428,
+            "hellinger": 0.038291924007841614
+          },
+          "duration_h": {
+            "wasserstein": 0.010000000000000009,
+            "energy": 0.03479852726768769,
+            "jensen_shannon": 0.1471762528113119,
+            "hellinger": 0.07624754677200124
+          }
+        }
+      ]
+    }
+  ],
+  "cross_target": [
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.000305,
+        "toi-1431b": 0.0001525
+      },
+      "abs_diff": 0.0001525
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.021227929715353776,
+        "toi-1431b": 0.010613964857676888
+      },
+      "abs_diff": 0.010613964857676888
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.8325546111405331,
+        "toi-1431b": 0.41627730557026654
+      },
+      "abs_diff": 0.41627730557026654
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.9485677526006362,
+        "toi-1431b": 0.4742838763003181
+      },
+      "abs_diff": 0.4742838763003181
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.41500000000000015,
+        "toi-1431b": 0.20750000000000007
+      },
+      "abs_diff": 0.20750000000000007
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.81891696770796,
+        "toi-1431b": 0.40945848385398
+      },
+      "abs_diff": 0.40945848385398
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.832554611142028,
+        "toi-1431b": 0.416277305571014
+      },
+      "abs_diff": 0.416277305571014
+    },
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.9921963400848003,
+        "toi-1431b": 0.49609817004240014
+      },
+      "abs_diff": 0.49609817004240014
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.00028499999999999993,
+        "toi-1431b": 0.00014249999999999997
+      },
+      "abs_diff": 0.00014249999999999997
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.02026388412915944,
+        "toi-1431b": 0.01013194206457972
+      },
+      "abs_diff": 0.01013194206457972
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.832554611140533,
+        "toi-1431b": 0.4162773055702665
+      },
+      "abs_diff": 0.4162773055702665
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.9315087784333597,
+        "toi-1431b": 0.46575438921667983
+      },
+      "abs_diff": 0.46575438921667983
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.375,
+        "toi-1431b": 0.1875
+      },
+      "abs_diff": 0.1875
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.7685213074469698,
+        "toi-1431b": 0.3842606537234849
+      },
+      "abs_diff": 0.3842606537234849
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.8325546111415295,
+        "toi-1431b": 0.41627730557076476
+      },
+      "abs_diff": 0.41627730557076476
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.9835143587649042,
+        "toi-1431b": 0.4917571793824521
+      },
+      "abs_diff": 0.4917571793824521
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.00029499999999999996,
+        "toi-1431b": 0.00014749999999999998
+      },
+      "abs_diff": 0.00014749999999999998
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.02075150596944713,
+        "toi-1431b": 0.010375752984723565
+      },
+      "abs_diff": 0.010375752984723565
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.832554611140533,
+        "toi-1431b": 0.4162773055702665
+      },
+      "abs_diff": 0.4162773055702665
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.9405236603923789,
+        "toi-1431b": 0.47026183019618945
+      },
+      "abs_diff": 0.47026183019618945
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.39500000000000013,
+        "toi-1431b": 0.19750000000000006
+      },
+      "abs_diff": 0.19750000000000006
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.7941190087134294,
+        "toi-1431b": 0.3970595043567147
+      },
+      "abs_diff": 0.3970595043567147
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.8325546111415296,
+        "toi-1431b": 0.4162773055707648
+      },
+      "abs_diff": 0.4162773055707648
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.988554472369408,
+        "toi-1431b": 0.494277236184704
+      },
+      "abs_diff": 0.494277236184704
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 2.0000000000000052e-05,
+        "toi-1431b": 1.0000000000000026e-05
+      },
+      "abs_diff": 1.0000000000000026e-05
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.0022008521077073835,
+        "toi-1431b": 0.0011004260538536917
+      },
+      "abs_diff": 0.0011004260538536917
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.2943525056226238,
+        "toi-1431b": 0.1471762528113119
+      },
+      "abs_diff": 0.1471762528113119
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.15249509354400284,
+        "toi-1431b": 0.07624754677200142
+      },
+      "abs_diff": 0.07624754677200142
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.040000000000000036,
+        "toi-1431b": 0.020000000000000018
+      },
+      "abs_diff": 0.020000000000000018
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.13578475614000288,
+        "toi-1431b": 0.06789237807000144
+      },
+      "abs_diff": 0.06789237807000144
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.41627730557001735,
+        "toi-1431b": 0.20813865278500868
+      },
+      "abs_diff": 0.20813865278500868
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.29970706289579013,
+        "toi-1431b": 0.14985353144789507
+      },
+      "abs_diff": 0.14985353144789507
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 1.0000000000000026e-05,
+        "toi-1431b": 5.000000000000013e-06
+      },
+      "abs_diff": 5.000000000000013e-06
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.0011180339887498995,
+        "toi-1431b": 0.0005590169943749497
+      },
+      "abs_diff": 0.0005590169943749497
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.20813865278500857,
+        "toi-1431b": 0.10406932639250428
+      },
+      "abs_diff": 0.10406932639250428
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.07658384801568323,
+        "toi-1431b": 0.038291924007841614
+      },
+      "abs_diff": 0.038291924007841614
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.020000000000000018,
+        "toi-1431b": 0.010000000000000009
+      },
+      "abs_diff": 0.010000000000000009
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.06959705453537537,
+        "toi-1431b": 0.03479852726768769
+      },
+      "abs_diff": 0.03479852726768769
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.2943525056226238,
+        "toi-1431b": 0.1471762528113119
+      },
+      "abs_diff": 0.1471762528113119
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.15249509354400248,
+        "toi-1431b": 0.07624754677200124
+      },
+      "abs_diff": 0.07624754677200124
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 1.0000000000000026e-05,
+        "toi-1431b": 5.000000000000013e-06
+      },
+      "abs_diff": 5.000000000000013e-06
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.0011180339887498995,
+        "toi-1431b": 0.0005590169943749497
+      },
+      "abs_diff": 0.0005590169943749497
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.20813865278500857,
+        "toi-1431b": 0.10406932639250428
+      },
+      "abs_diff": 0.10406932639250428
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "depth",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.07658384801568323,
+        "toi-1431b": 0.038291924007841614
+      },
+      "abs_diff": 0.038291924007841614
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "wasserstein",
+      "per_target": {
+        "toi-1337b": 0.020000000000000018,
+        "toi-1431b": 0.010000000000000009
+      },
+      "abs_diff": 0.010000000000000009
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "energy",
+      "per_target": {
+        "toi-1337b": 0.06959705453537537,
+        "toi-1431b": 0.03479852726768769
+      },
+      "abs_diff": 0.03479852726768769
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "jensen_shannon",
+      "per_target": {
+        "toi-1337b": 0.2943525056226238,
+        "toi-1431b": 0.1471762528113119
+      },
+      "abs_diff": 0.1471762528113119
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "param": "duration_h",
+      "metric": "hellinger",
+      "per_target": {
+        "toi-1337b": 0.15249509354400248,
+        "toi-1431b": 0.07624754677200124
+      },
+      "abs_diff": 0.07624754677200124
+    }
+  ]
+}

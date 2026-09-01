@@ -1,0 +1,2 @@
+# Provides each target's phase-folded light curve (synthetic in this fixture).
+role: transform   # reads one input folder, writes one output folder

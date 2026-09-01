@@ -1,0 +1,3 @@
+# The role is valid; the defect is in main.py, where the entry function lacks
+# the @dae.entry decorator.
+role: transform   # pass-through transform: reads its input, writes it back

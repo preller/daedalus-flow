@@ -1,0 +1,2 @@
+# Measures how much the two fitting methods disagree for one target.
+role: walk_collector   # combines the parallel method branches within one target

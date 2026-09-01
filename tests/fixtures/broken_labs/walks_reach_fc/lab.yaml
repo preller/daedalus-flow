@@ -1,0 +1,13 @@
+# walks_reach_fc: uncollected branch walks flow straight into the flight_collector.
+# validate refuses this lab before any module body is read.
+name: walks_reach_fc
+modules:
+  - id: emit
+  - id: prep
+    depends: [emit]
+  - id: a
+    depends: [prep]
+  - id: b
+    depends: [prep]
+  - id: fcollect
+    depends: [a, b]

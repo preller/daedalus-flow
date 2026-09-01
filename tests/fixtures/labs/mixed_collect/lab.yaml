@@ -1,0 +1,15 @@
+# mixed_collect: inner group collected at sub_join, outer group never collected
+# (per-group, uncollected branches allowed). Roles live in each module's dae-module.yaml.
+name: mixed_collect
+modules:
+  - id: src
+  - id: deep
+    depends: [src]
+  - id: side
+    depends: [src]
+  - id: sub_a
+    depends: [deep]
+  - id: sub_b
+    depends: [deep]
+  - id: sub_join
+    depends: [sub_a, sub_b]

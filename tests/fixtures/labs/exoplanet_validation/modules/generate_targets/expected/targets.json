@@ -1,0 +1,16 @@
+[
+  {
+    "target": "toi-1337b",
+    "period_days": 6.0,
+    "rp_rstar": 0.03,
+    "duration_h": 3.0,
+    "snr": 9.0
+  },
+  {
+    "target": "toi-1431b",
+    "period_days": 2.65,
+    "rp_rstar": 0.08,
+    "duration_h": 3.5,
+    "snr": 30.0
+  }
+]

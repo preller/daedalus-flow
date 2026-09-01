@@ -1,0 +1,19 @@
+# Boundary fixture (complex_partial_xy): a cross-cutting shape the walk model
+# refuses (the v3 gather-without-merge boundary). Refused at validate.
+name: complex_partial_xy
+modules:
+  - id: src
+  - id: b1
+    depends: [src]
+  - id: b2
+    depends: [src]
+  - id: b3
+    depends: [src]
+  - id: b4
+    depends: [src]
+  - id: b5
+    depends: [src]
+  - id: coll_x
+    depends: [b1, b2, b3]
+  - id: coll_y
+    depends: [b4, b5]

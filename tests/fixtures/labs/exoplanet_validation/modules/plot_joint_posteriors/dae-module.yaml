@@ -1,0 +1,2 @@
+# Draws the joint depth-duration corner plot across the four methods.
+role: walk_collector   # combines the four method Walks within one target

@@ -1,0 +1,44 @@
+# exoplanet_validation: the end-to-end validation pipeline, kept as a fixture
+# rather than a gallery example. Two targets, four fitting methods per target,
+# then per-target and cross-target aggregation; the light curves are synthetic.
+name: exoplanet_validation
+
+# Roles live in each module's dae-module.yaml. The brancher, denoise_lightcurve,
+# follows from its out-degree of four and is not declared.
+modules:
+  # Layer 1: one Flight per target.
+  - id: generate_targets
+
+  # Layer 2: per-target light curve (synthetic in this fixture).
+  - id: fetch_archive_data
+    depends: [generate_targets]
+
+  # Layer 3: denoise; four fits depend on it, so it is the branch point.
+  - id: denoise_lightcurve
+    depends: [fetch_archive_data]
+
+  # Layer 4: four fitting methods (four Walks per Flight).
+  - id: fit_transit_nested
+    depends: [denoise_lightcurve]
+  - id: fit_transit_mcmc
+    depends: [denoise_lightcurve]
+  - id: fit_transit_gaussian
+    depends: [denoise_lightcurve]
+  - id: fit_transit_biased
+    depends: [denoise_lightcurve]
+
+  # Layer 5: within-Flight aggregation across the four methods.
+  - id: plot_joint_posteriors
+    depends: [fit_transit_nested, fit_transit_mcmc, fit_transit_gaussian, fit_transit_biased]
+  - id: analyze_posterior_distances
+    depends: [fit_transit_nested, fit_transit_mcmc, fit_transit_gaussian, fit_transit_biased]
+  - id: plot_method_overlay
+    depends: [fit_transit_nested, fit_transit_mcmc, fit_transit_gaussian, fit_transit_biased]
+
+  # Layer 6: cross-target science; converges all three walk aggregators.
+  - id: compare_target_uncertainties
+    depends: [plot_joint_posteriors, analyze_posterior_distances, plot_method_overlay]
+
+  # Layer 7: the sole sink; files the whole run into one tidy results tree.
+  - id: collect_results
+    depends: [compare_target_uncertainties]

@@ -1,0 +1,2 @@
+# Fits the transit with MCMC (emcee).
+role: transform   # one Walk: reads the denoised curve, writes a posterior

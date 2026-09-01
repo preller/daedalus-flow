@@ -1,0 +1,11 @@
+# diamond_repeat: brancher x2, sink = repeated transform; both branches terminal
+# (uncollected sibling branches allowed). Roles live in each module's dae-module.yaml.
+name: diamond_repeat
+modules:
+  - id: seed
+  - id: left
+    depends: [seed]
+  - id: right
+    depends: [seed]
+  - id: d
+    depends: [left, right]

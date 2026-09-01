@@ -1,0 +1,2 @@
+# The role is valid; the defect is in main.py, whose module body raises at import.
+role: transform   # valid role; the defect is the raise at import time in main.py

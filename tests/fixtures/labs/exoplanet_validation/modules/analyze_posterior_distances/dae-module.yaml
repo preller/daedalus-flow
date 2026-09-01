@@ -1,0 +1,2 @@
+# Computes pairwise statistical distances between the four posteriors.
+role: walk_collector   # combines the four method Walks within one target

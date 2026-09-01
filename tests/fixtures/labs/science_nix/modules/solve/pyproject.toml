@@ -1,0 +1,13 @@
+[project]
+name = "sciencenix-solve"
+version = "0.0.0"
+requires-python = ">=3.12"
+# numpy and scipy are both BSD-3; scipy pulls the OpenBLAS and Fortran system
+# closure that needs an LD_LIBRARY_PATH shim under uv or pip wheels and none under nix.
+dependencies = [
+    "numpy>=2,<3",
+    "scipy>=1.13,<2",
+]
+
+[tool.uv]
+package = false

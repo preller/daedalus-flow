@@ -1,0 +1,2 @@
+# Fits the transit with a Gaussian approximation from the least-squares covariance.
+role: transform   # one Walk: reads the denoised curve, writes a posterior

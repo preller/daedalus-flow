@@ -1,0 +1,37 @@
+# The parallel example runs four branches side by side, then joins them. split
+# hands the dataset to four independent branches, one statistic each; combine
+# is a walk_collector, so daedalus waits for all four before it merges them.
+
+# To run it in parallel and watch it in the browser, install the optional engine
+# with `pip install daedalus-flow[engine]`, then set `engine: prefect` and
+# `max_workers: 4` below. The default engine runs it serially, with no install.
+name: parallel
+
+# The orchestration backend. local is the built-in in-process engine (always
+# available); prefect is the optional backend behind the [engine] extra.
+engine: local
+
+# How many steps may run at once. 1 is serial (the default). Raise it (for
+# example to 4) to run the four branches side by side.
+max_workers: 1
+
+modules:
+  # Top of the fan-out. Reads the dataset once and passes the values on. It has
+  # four onward branches, so daedalus treats it as the brancher.
+  - id: split
+
+  # Four independent branches, each computing one statistic over the same values.
+  # They share no dependency, so they are free to run concurrently.
+  - id: stat_sum
+    depends: [split]
+  - id: stat_max
+    depends: [split]
+  - id: stat_min
+    depends: [split]
+  - id: stat_mean
+    depends: [split]
+
+  # The barrier. A walk_collector that waits for all four branches, then merges
+  # their statistics into one summary, the join at the bottom of the fan.
+  - id: combine
+    depends: [stat_sum, stat_max, stat_min, stat_mean]

@@ -1,0 +1,16 @@
+# Auto-activate the daedalus dev shell (flake.nix) on entry.
+#
+# WHY: under a Nix-store Python interpreter the ELF loader is the Nix glibc
+# loader, which does NOT search the host FHS library path
+# (/usr/lib/x86_64-linux-gnu), so the science stack's binary wheels (numpy,
+# scipy, ...) cannot find libstdc++.so.6 (the gcc runtime) or libz.so.1 at
+# import time. The flake's dev shell sets a narrow, Nix-store, ABI-matched
+# LD_LIBRARY_PATH (zlib + gcc runtime) that fixes exactly this. direnv exports
+# that environment the moment you cd in, so `uv run python -c "import scipy"`
+# works with zero manual steps.
+#
+# SETUP (one time): `cp .envrc.defaults .envrc && direnv allow`. Needs
+# direnv >= 2.30 for the built-in `use flake`.
+#
+# IF DIRENV IS DISABLED: run `nix develop` by hand to enter the same shell.
+use flake

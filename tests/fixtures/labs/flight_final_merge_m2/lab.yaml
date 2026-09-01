@@ -1,0 +1,22 @@
+# flight_final_merge_m2: the flight_final_merge shape with a two-item roster, so
+# the engine fans out to M=2 flights. Each collector tags its file with its own
+# ctx.flight_id, so a swapped or dropped sibling in a flight's final/ fails the run.
+name: flight_final_merge_m2
+modules:
+  - id: emit
+  - id: split
+    depends: [emit]
+  - id: leaf_x
+    depends: [split]
+  - id: leaf_y
+    depends: [split]
+  - id: coll_a
+    depends: [leaf_x, leaf_y]
+  - id: coll_b
+    depends: [leaf_x, leaf_y]
+  - id: coll_c
+    depends: [leaf_x, leaf_y]
+  - id: fc
+    depends: [coll_a, coll_b, coll_c]
+  - id: sink
+    depends: [fc]

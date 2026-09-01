@@ -1,0 +1,9 @@
+# emitter_fanout: emitter with two successors (the flight template needs a single root).
+# validate refuses this lab before any module body is read.
+name: emitter_fanout
+modules:
+  - id: emit
+  - id: a
+    depends: [emit]
+  - id: b
+    depends: [emit]

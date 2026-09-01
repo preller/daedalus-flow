@@ -1,0 +1,2 @@
+# Fits the transit signal using nested sampling.
+role: transform   # reads one input folder, writes one output folder

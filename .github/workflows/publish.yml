@@ -1,0 +1,57 @@
+# Release pipeline. Build once, `twine check`, then trusted publishing (OIDC) with attestations.
+# The PyPI pending publisher must match this repository, the file name publish.yml and the
+# environment (`pypi`, or `testpypi` for the rehearsal); register one publisher per index.
+
+name: publish
+
+on:
+  push:
+    # hatch-vcs derives the version from the tag. A clean vX.Y.Z tag publishes to PyPI;
+    # an rc or dev tag rehearses on TestPyPI.
+    tags: ["v*"]
+  # Manual trigger for a TestPyPI rehearsal without a tag.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          # hatch-vcs needs the full history and tags, or the build gets the wrong version.
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
+        with:
+          version: "0.7.22"
+      - run: uv build
+      # Confirm the wheel and sdist metadata render on PyPI before an upload consumes a version.
+      - run: uvx twine check dist/*
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    # The environment name is half of the OIDC claim and gates the required reviewer.
+    environment: ${{ (github.event_name == 'workflow_dispatch' || contains(github.ref, 'rc') || contains(github.ref, 'dev')) && 'testpypi' || 'pypi' }}
+    permissions:
+      # Mints the short-lived OIDC token; no PyPI API token is used.
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: dist
+          path: dist/
+      - name: Publish to PyPI
+        if: github.event_name == 'push' && !contains(github.ref, 'rc') && !contains(github.ref, 'dev')
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+      - name: Publish to TestPyPI
+        if: github.event_name == 'workflow_dispatch' || contains(github.ref, 'rc') || contains(github.ref, 'dev')
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+        with:
+          repository-url: https://test.pypi.org/legacy/

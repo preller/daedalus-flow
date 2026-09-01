@@ -1,0 +1,50 @@
+name: Bug report
+description: Report something that is not working as expected.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the problem, including what you expected to happen instead.
+      placeholder: When I run ..., I expected ... but got ...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands or steps that trigger the problem. A minimal example helps most.
+      placeholder: |
+        1. Run `dae ...`
+        2. ...
+        3. See the error
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Version
+      description: The output of `dae --version`.
+      placeholder: Paste the output of `dae --version` here.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your operating system and Python version (`python --version`).
+      placeholder: |
+        OS: e.g. Ubuntu 24.04, macOS 15
+        Python: e.g. 3.12.7
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or traceback
+      description: Any relevant error output. This will be rendered as code, so no backticks are needed.
+      render: shell
+    validations:
+      required: false

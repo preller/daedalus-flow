@@ -1,0 +1,27 @@
+{
+  "target": "toi-1337b",
+  "methods": [
+    "biased",
+    "gaussian",
+    "mcmc",
+    "nested"
+  ],
+  "per_method": {
+    "biased": {
+      "rms": 0.0,
+      "reduced_chi2": 0.0
+    },
+    "gaussian": {
+      "rms": 0.0,
+      "reduced_chi2": 0.0
+    },
+    "mcmc": {
+      "rms": 0.0,
+      "reduced_chi2": 0.0
+    },
+    "nested": {
+      "rms": 0.0,
+      "reduced_chi2": 0.0
+    }
+  }
+}

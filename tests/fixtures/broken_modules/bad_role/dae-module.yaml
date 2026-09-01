@@ -1,0 +1,3 @@
+# `reducer` is not in the closed role vocabulary (emitter, transform,
+# walk_collector, flight_collector), so `dae module validate` must reject this.
+role: reducer   # invalid: not a recognized role

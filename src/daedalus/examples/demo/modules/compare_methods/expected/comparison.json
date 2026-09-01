@@ -1,0 +1,6 @@
+{
+  "target": "gj-1214b",
+  "wasserstein_depth": 0.0002726812115725517,
+  "hellinger_depth": 0.3690038692731457,
+  "depth_abs_diff": 0.0002726606614601723
+}

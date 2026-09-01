@@ -1,0 +1,41 @@
+# The isolation-nix example gives each module its own nix-built Python
+# environment. render_classic pins pyfiglet 1.0.2 and render_modern pins 1.0.4;
+# both run in one `dae lab run`, and verify checks that each imported its pin.
+
+# Running it needs a build-capable nix with flakes. Without nix, `dae lab run`
+# refuses with dae.lab.run.isolation_unavailable (exit 1); `dae lab run --dry-run`
+# previews the plan and needs no nix.
+
+# To adapt it, swap pyfiglet for your library, change the pin in each module's
+# pyproject.toml and run `uv lock` there.
+name: isolation-nix
+
+# Isolation policy. `auto` honors each module's own `isolation:` preference, so
+# one lab mixes uv and nix environments; `uv` or `nix` forces every module into
+# that kind. Omit the key for the default: ambient at K=1, uv above.
+isolation: auto
+
+# How many steps may run at once. The two render branches are independent, so K=2
+# runs them side by side (each in its own environment).
+max_workers: 2
+
+modules:
+  # Top of the diamond. Reads the input word once and hands it to both branches.
+  # No isolation preference, so under `auto` it fuses into a uv subprocess at K=2.
+  - id: seed
+
+  # Left branch. Pins the older pyfiglet (1.0.2) through a requirements.txt alone,
+  # so its nix env is generated (pyproject plus uv lock). isolation: nix.
+  - id: render_classic
+    depends: [seed]
+
+  # Right branch. Pins the newer pyfiglet (1.0.4) and ships its own flake.nix, so
+  # nix builds from that flake. isolation: [nix, uv], a ladder.
+  - id: render_modern
+    depends: [seed]
+
+  # The barrier. A walk_collector that waits for both branches, then checks that
+  # each ran under its own pinned pyfiglet version. No isolation preference, so it
+  # fuses too.
+  - id: verify
+    depends: [render_classic, render_modern]

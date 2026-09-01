@@ -1,0 +1,271 @@
+[project]
+name = "daedalus-flow"
+# The version comes from git tags through hatch-vcs; there is no static version.
+dynamic = ["version"]
+description = "Design, validate, and run labs of modules: reproducible analysis pipelines for data-intensive science."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+# Copyright is held by University College London (LICENSE appendix and NOTICE);
+# citation metadata lives in CITATION.cff.
+authors = [{ name = "Patricio Reller" }]
+keywords = [
+  "pipeline",
+  "workflow",
+  "dag",
+  "cli",
+  "reproducibility",
+  "astronomy",
+  "science",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Astronomy",
+  "Typing :: Typed",
+]
+dependencies = [
+  "typer>=0.26.7",
+  "rich>=13.8,<16",
+  "pyyaml>=6.0.3,<7",
+  "networkx>=3.4,<4",
+  # The uv isolation mode shells out to the `uv` binary, and the bundled demo runs on it.
+  "uv>=0.5,<1",
+  "psutil>=5.9,<8",
+]
+
+[project.scripts]
+dae = "daedalus.cli:main"
+daedalus = "daedalus.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/preller/daedalus-flow"
+Repository = "https://github.com/preller/daedalus-flow"
+Issues = "https://github.com/preller/daedalus-flow/issues"
+Changelog = "https://github.com/preller/daedalus-flow/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+# The bundled `demo` example imports numpy; the rest of the science stack is test-only.
+demo = ["numpy>=2.1,<2.2"]
+# The Prefect backend, lazy-imported when a lab sets `engine: prefect`. prefect 3.8 runs on
+# the post-0.137 fastapi router, which retired the old prefect<3.7.3 hold.
+engine = ["prefect>=3.8.3"]
+# Layout engine for `dae lab visualize --style`; the renderer lazy-imports grandalf.
+viz = ["grandalf>=0.8"]
+
+[tool.uv]
+# The engine, viz, test and docs groups stay opt-in, so a bare `uv run dae` resolves a lean closure.
+default-groups = ["dev"]
+
+[build-system]
+# hatchling 1.32 emits core-metadata 2.5, which twine 6.2 rejects; lift the cap once
+# `twine check` accepts a 2.5 wheel.
+requires = ["hatchling>=1.27,<1.32", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+# Serves builds from trees without git metadata (e.g. the GitHub source zip).
+fallback-version = "0.1.0"
+
+[tool.hatch.version.raw-options]
+# PyPI rejects local versions, so untagged builds get a clean PEP 440 dev version.
+local_scheme = "no-local-version"
+# Only v-tags feed the version; a stray tag would otherwise break `git describe`.
+git_describe_command = "git describe --dirty --tags --long --match v[0-9]*"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/daedalus"]
+# Keep caches, bytecode and run output out of the packaged examples.
+exclude = [
+    "**/.mypy_cache",
+    "**/__pycache__",
+    "**/*.pyc",
+    "**/.daedalus",
+    "**/dae-outputs",
+]
+
+[tool.hatch.build.targets.sdist]
+# The same exclusions as the wheel.
+exclude = [
+    "**/.mypy_cache",
+    "**/__pycache__",
+    "**/*.pyc",
+    "**/.daedalus",
+    "**/dae-outputs",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+    "nbmake>=1.5",
+    "jupytext>=1.19",
+    "ipykernel>=6",
+    # Pinned exactly; the pre-commit rev and CI run the same ruff.
+    "ruff==0.15.16",
+    "mypy>=2.1.0",
+    "import-linter>=2.11",
+    "pytest-cov>=7.1.0",
+    "pre-commit>=4.6.0",
+    "pytest-randomly>=4.1.0",
+    "pip-audit>=2.10.0",
+    # PyYAML ships no py.typed.
+    "types-PyYAML>=6.0.12",
+]
+# The science stack the example modules import; one numpy pin covers every example.
+test = [
+  "pytest>=8,<9",
+  # batman-package imports distutils, gone from the 3.12 stdlib; setuptools vendors a shim.
+  "setuptools>=68",
+  "numpy>=2.1,<2.2",
+  "scipy>=1.11",
+  "batman-package>=2.4",
+  "dynesty>=2.1",
+  "emcee>=3.1",
+  "corner>=2.2",
+  "matplotlib>=3.8",
+  # lightkurve bins the folded curve in the denoise module; it pulls astropy and friends.
+  "lightkurve>=2.4",
+]
+# Dev mirror of the [engine] extra for `uv sync --group engine`; keep the floor in step.
+engine = ["prefect>=3.8.3"]
+# Dev mirror of the [viz] extra for `uv sync --group viz`.
+viz = ["grandalf>=0.8"]
+# The Sphinx toolchain for Read the Docs; AutoAPI parses source statically, so no science stack.
+# `sphinxcontrib-typer` stays bare; its [html]/[png] extras pull Selenium and headless Chrome.
+docs = [
+    "sphinx>=9.1,<10",
+    "shibuya>=2026.5",
+    "myst-parser>=5.1,<6",
+    "sphinx-autoapi>=3.8,<4",
+    "sphinxcontrib-typer>=0.9,<1",
+    "sphinx-design>=0.6",
+    "sphinx-copybutton>=0.5",
+    "sphinxcontrib-mermaid>=1.0",
+    "sphinx-llms-txt>=0.7",
+    "sphinxext-opengraph>=0.13",
+    "sphinx-notfound-page>=1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The repo root on sys.path, so `tests` imports resolve under both `pytest` and `python -m pytest`.
+pythonpath = ["."]
+addopts = "-q --strict-markers --strict-config"
+# pytest-randomly prints its seed in the report header; pass it back with `--randomly-seed=NNNN`.
+# The heavy tiers are slow and e2e, integration is cross-module, and the untagged pool is unit.
+markers = [
+  "slow: runs a real sampler (dynesty/emcee/scipy); deselect with -m 'not slow'",
+  "e2e: drives the installed `dae` binary end-to-end; deselect for a tight inner loop with -m 'not slow and not e2e'",
+  "integration: exercises the engine/scheduler/isolation across modules or a real subprocess (no installed-binary drive); the untagged default pool is the unit tier. Inner loop: -m 'not slow and not e2e and not integration'",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "C90", "PL", "D", "ANN", "S"]
+# `ANN401` allows explicit Any at dynamic boundaries; `D417` would flood the selective docstrings.
+ignore = ["ANN401", "D417"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 8
+
+[tool.ruff.lint.pylint]
+max-args = 6
+max-branches = 10
+max-statements = 40
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+# core and cli require module and class docstrings only; flow keeps the full D set.
+"src/daedalus/core/**" = ["D102", "D103", "D104", "D105", "D107"]
+"src/daedalus/cli/**" = ["D102", "D103", "D104", "D105", "D107"]
+# Examples and fixtures are research data files, not library code.
+"src/daedalus/examples/**" = ["D", "ANN", "PLR2004", "E501", "SIM115"]
+# Tests assert with literals and import the science stack inside the test body.
+"tests/**" = ["D", "S101", "ANN", "PLR2004", "PLC0415"]
+"tests/fixtures/**" = ["E501", "SIM115"]
+
+[tool.ruff.format]
+# Defaults; the block anchors `ruff format` as the project formatter.
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+warn_unused_configs = true
+# scripts/ is strict-checked too; mypy_path lets the tests import the generators there.
+files = ["src/daedalus", "tests", "scripts"]
+mypy_path = "scripts"
+# Fixtures and the isolation-nix example hold same-named main.py files mypy cannot map to modules.
+exclude = ["^tests/fixtures/", "src/daedalus/examples/isolation-nix/"]
+
+[[tool.mypy.overrides]]
+# networkx and psutil ship no py.typed; prefect and grandalf are optional extras absent from a
+# bare venv. grandalf needs the wildcard because the imports are submodule-level.
+module = ["networkx", "prefect", "psutil", "grandalf.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# Tests stay on the mypy path without annotations on every test function.
+module = ["tests.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_decorators = false
+disallow_untyped_calls = false
+disallow_any_generics = false
+warn_return_any = false
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+# Examples are research data files on the real science stack.
+module = ["daedalus.examples.*"]
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+# The one relaxation for generic-heavy core code.
+module = ["daedalus.core.*"]
+disallow_any_generics = false
+
+[tool.coverage.run]
+branch = true
+source = ["daedalus"]
+
+[tool.coverage.report]
+# The floor sits under the measured 77.85% line-plus-branch baseline; raise it as prefect.py
+# and the render paths fill in.
+fail_under = 77
+omit = [
+  "*/daedalus/examples/*",
+]
+
+[tool.importlinter]
+root_package = "daedalus"
+# Layers, high to low: cli, core, flow. cli may skip a layer and import flow directly.
+
+[[tool.importlinter.contracts]]
+name = "Layers: cli over core over flow"
+type = "layers"
+layers = ["daedalus.cli", "daedalus.core", "daedalus.flow"]
+
+[[tool.importlinter.contracts]]
+name = "core must not import cli"
+type = "forbidden"
+source_modules = ["daedalus.core"]
+forbidden_modules = ["daedalus.cli"]
+
+[[tool.importlinter.contracts]]
+name = "flow must not import cli or core"
+type = "forbidden"
+source_modules = ["daedalus.flow"]
+forbidden_modules = ["daedalus.cli", "daedalus.core"]

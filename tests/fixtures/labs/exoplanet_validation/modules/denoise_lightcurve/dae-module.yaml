@@ -1,0 +1,2 @@
+# Denoises the light curve; four fits depend on it, so it is the branch point.
+role: transform   # auto-detected as the brancher (out-degree 4): four Walks per Flight
