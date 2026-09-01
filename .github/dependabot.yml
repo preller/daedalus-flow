@@ -1,0 +1,11 @@
+# Monthly grouped bumps of the SHA-pinned GitHub Actions. Python deps are pinned in uv.lock
+# and bumped with `uv lock`, so only the github-actions ecosystem is tracked here.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      actions:
+        patterns: ["*"]

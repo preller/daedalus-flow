@@ -1,0 +1,15 @@
+# collector_no_walks: reconverge: a second collector whose tokens are all the parent/root walk.
+# validate refuses this lab before any module body is read.
+name: collector_no_walks
+modules:
+  - id: src
+  - id: a
+    depends: [src]
+  - id: b
+    depends: [src]
+  - id: c1
+    depends: [a, b]
+  - id: d
+    depends: [c1]
+  - id: c2
+    depends: [d]

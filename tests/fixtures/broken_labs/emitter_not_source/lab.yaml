@@ -1,0 +1,11 @@
+# late_emit is marked `role: emitter` yet declares `depends:`, so `dae lab
+# validate` must resolve emitter_not_source. The check keys on the lab.yaml
+# `role:` field, the one two_emitters uses, not the on-disk role.
+name: emitter_not_source
+
+modules:
+  - id: source_tf
+
+  - id: late_emit
+    role: emitter
+    depends: [source_tf]

@@ -1,0 +1,45 @@
+# The fast local subset of the `just gate` checks; pip-audit stays in CI.
+# Install from the repo root with `uv run pre-commit install`.
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # examples/ holds module artifacts (expected/ goldens, input/ data) that
+      # the gallery tests compare byte-for-byte; whitespace-normalizing them
+      # changes test truth, so the fixers skip the whole examples tree.
+      - id: end-of-file-fixer
+        exclude: ^(src/daedalus/examples|tests/fixtures)/
+      - id: trailing-whitespace
+        exclude: ^(src/daedalus/examples|tests/fixtures)/
+      - id: check-merge-conflict
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # rev equals the ruff version pyproject pins (ruff==0.15.16), so
+    # pre-commit, `just lint` and CI run the same ruff.
+    rev: v0.15.16
+    hooks:
+      # Scope matches the gate definition (`just lint`: ruff over src + tests).
+      - id: ruff-check
+        args: [--fix]
+        files: ^(src|tests)/
+      - id: ruff-format
+        files: ^(src|tests)/
+
+  - repo: https://github.com/gitleaks/gitleaks
+    # Secret scanning on staged changes. rev pinned.
+    rev: v8.9.0
+    hooks:
+      - id: gitleaks
+
+  - repo: local
+    hooks:
+      # A local hook rather than a mirror, so it runs the project-pinned mypy
+      # with the pyproject.toml strict config.
+      - id: mypy
+        name: mypy (project venv, strict)
+        entry: uv run mypy
+        language: system
+        # scripts/ is in [tool.mypy].files, so it must also trigger the hook.
+        files: ^(src|tests|scripts)/.*\.py$|^pyproject\.toml$
+        pass_filenames: false

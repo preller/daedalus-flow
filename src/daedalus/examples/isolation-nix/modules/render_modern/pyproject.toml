@@ -1,0 +1,9 @@
+[project]
+name = "isolation-nix-render-modern"
+version = "0.0.0"
+requires-python = ">=3.12"
+# Pins the newer pyfiglet (MIT), the only difference from render_classic.
+dependencies = ["pyfiglet==1.0.4"]
+
+[tool.uv]
+package = false

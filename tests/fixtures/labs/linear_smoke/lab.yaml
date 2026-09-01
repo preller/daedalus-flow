@@ -1,0 +1,27 @@
+# linear_smoke: a strictly linear chain, emitter -> transforms -> flight_collector,
+# with no fan-out. The first lab the serial local engine ran end to end; stdlib
+# only and deterministic except for per-step wall time.
+name: linear_smoke
+
+# Roles live in each module's dae-module.yaml. The chain is emit_ticks ->
+# debug_io -> sleep_briefly -> summarize_walk -> collect_report.
+modules:
+  # The emitter writes a small seeded list of ticks derived from ctx.seed alone.
+  - id: emit_ticks
+
+  # Copies its input and records the ctx fields it saw, so the context plumbing
+  # is observable on disk.
+  - id: debug_io
+    depends: [emit_ticks]
+
+  # Sleeps briefly, then passes the data through, so per-step durations are nonzero.
+  - id: sleep_briefly
+    depends: [debug_io]
+
+  # Summarizes the single walk into walk_summary.json for the flight collector.
+  - id: summarize_walk
+    depends: [sleep_briefly]
+
+  # Converges the single flight and writes run_report.json naming every upstream step.
+  - id: collect_report
+    depends: [summarize_walk]

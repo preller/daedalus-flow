@@ -1,0 +1,25 @@
+{
+  "n_targets": 3,
+  "mean_wasserstein_depth": 0.0001858637901215708,
+  "mean_hellinger_depth": 0.3148164351104254,
+  "per_target": [
+    {
+      "target": "gj-1214b",
+      "wasserstein_depth": 0.0002726812115725517,
+      "hellinger_depth": 0.3690038692731457,
+      "depth_abs_diff": 0.0002726606614601723
+    },
+    {
+      "target": "hd-209458b",
+      "wasserstein_depth": 7.42560900604116e-05,
+      "hellinger_depth": 0.26489809189225066,
+      "depth_abs_diff": 7.421488057385989e-05
+    },
+    {
+      "target": "wasp-39b",
+      "wasserstein_depth": 0.00021065406873174914,
+      "hellinger_depth": 0.3105473441658797,
+      "depth_abs_diff": 0.00021059028599215365
+    }
+  ]
+}

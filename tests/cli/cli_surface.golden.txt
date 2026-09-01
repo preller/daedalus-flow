@@ -1,0 +1,16 @@
+dae :: --json:flag --version:flag
+dae example :: --json:flag <name:text?>
+dae flow ::
+dae flow resume :: --json:flag
+dae flow status :: --json:flag
+dae lab ::
+dae lab clean :: --dry-run:flag --json:flag <name:text?>
+dae lab init :: --dry-run:flag --json:flag <name:text>
+dae lab run :: --dry-run:flag --json:flag
+dae lab validate :: --deep:flag --json:flag <path:text?>
+dae lab visualize :: --json:flag --style:choice
+dae module ::
+dae module convert :: --dry-run:flag --json:flag <script:text>
+dae module create :: --dry-run:flag --json:flag <module_id:text>
+dae module try :: --json:flag <path:text>
+dae module validate :: --json:flag <path:text>

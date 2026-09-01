@@ -1,0 +1,2 @@
+# Normalizes a raw light curve by dividing out its baseline flux level.
+role: transform   # reads one input folder, writes one output folder

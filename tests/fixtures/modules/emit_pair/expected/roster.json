@@ -1,0 +1,10 @@
+[
+  {
+    "target": "alpha",
+    "value": 10
+  },
+  {
+    "target": "beta",
+    "value": 20
+  }
+]

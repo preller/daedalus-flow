@@ -1,0 +1,39 @@
+{
+  "target": "toi-1337b",
+  "params": [
+    "depth",
+    "duration_h"
+  ],
+  "methods": [
+    "biased",
+    "gaussian",
+    "mcmc",
+    "nested"
+  ],
+  "per_method": {
+    "biased": {
+      "depth_mean": 0.0011899999999999999,
+      "depth_std": 9.219544457292888e-05,
+      "duration_h_mean": 3.3899999999999997,
+      "duration_h_std": 0.09219544457292896
+    },
+    "gaussian": {
+      "depth_mean": 0.0008849999999999999,
+      "depth_std": 4.609772228646444e-05,
+      "duration_h_mean": 2.975,
+      "duration_h_std": 0.04609772228646438
+    },
+    "mcmc": {
+      "depth_mean": 0.000905,
+      "depth_std": 4.609772228646444e-05,
+      "duration_h_mean": 3.015,
+      "duration_h_std": 0.04609772228646438
+    },
+    "nested": {
+      "depth_mean": 0.000895,
+      "depth_std": 4.609772228646444e-05,
+      "duration_h_mean": 2.995,
+      "duration_h_std": 0.04609772228646438
+    }
+  }
+}

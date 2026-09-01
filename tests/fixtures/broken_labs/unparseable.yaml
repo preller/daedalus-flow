@@ -1,0 +1,9 @@
+# `modules:` opens a flow mapping that never closes and then mixes block and
+# flow syntax, so PyYAML raises a MarkedYAMLError instead of a document.
+
+# `dae lab validate` reports parse_error with the problem_mark line; `dae lab
+# run` refuses as invalid.
+name: broken-unparseable
+
+modules: {[ id: emit, depends: ]
+  - id: still_broken

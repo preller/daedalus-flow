@@ -1,0 +1,3 @@
+# This module has no main.py at all, only this manifest. The role is valid, but
+# with no entry file `dae module validate` must report missing_entry, not crash.
+role: transform   # valid role; the defect is the absent main.py

@@ -1,0 +1,8 @@
+# normalize depends on fetch_data, which is never declared. Every name under
+# `depends` must be a module declared in this file, so `dae lab validate` must
+# reject this.
+name: broken-dangling-dep
+
+modules:
+  - id: normalize
+    depends: [fetch_data]

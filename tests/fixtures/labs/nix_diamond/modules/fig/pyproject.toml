@@ -1,0 +1,8 @@
+[project]
+name = "nixdiamond-fig"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = ["pyfiglet>=1,<2"]
+
+[tool.uv]
+package = false

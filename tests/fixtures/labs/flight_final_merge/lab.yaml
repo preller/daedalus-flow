@@ -1,0 +1,22 @@
+# flight_final_merge: emitter -> brancher split (two walks) -> three sibling
+# walk_collectors, each writing its own file -> flight_collector fc -> sink. fc reads
+# a.json, b.json and c.json, so flight_1/final/ must hold the union of all three.
+name: flight_final_merge
+modules:
+  - id: emit
+  - id: split
+    depends: [emit]
+  - id: leaf_x
+    depends: [split]
+  - id: leaf_y
+    depends: [split]
+  - id: coll_a
+    depends: [leaf_x, leaf_y]
+  - id: coll_b
+    depends: [leaf_x, leaf_y]
+  - id: coll_c
+    depends: [leaf_x, leaf_y]
+  - id: fc
+    depends: [coll_a, coll_b, coll_c]
+  - id: sink
+    depends: [fc]

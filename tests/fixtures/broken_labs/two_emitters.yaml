@@ -1,0 +1,11 @@
+# emit_a and emit_b are both emitters. A lab may have one emitter, the single
+# starting point that fans the input out into separate flights, so
+# `dae lab validate` must reject this.
+name: broken-two-emitters
+
+modules:
+  - id: emit_a
+    role: emitter
+
+  - id: emit_b
+    role: emitter

@@ -1,0 +1,10 @@
+# Dynamic flights, M = len(input/items.json): emit (emitter) -> work (transform,
+# one per flight) -> gather (flight_collector). The test reads the same item
+# list to compute the expected M.
+name: emitter_range1
+modules:
+  - id: emit
+  - id: work
+    depends: [emit]
+  - id: gather
+    depends: [work]

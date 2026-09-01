@@ -1,0 +1,7 @@
+# Left branch. Renders the word under the older pinned pyfiglet (1.0.2).
+role: transform
+
+# This module ships a requirements.txt and no uv.lock. Under isolation: nix a
+# minimal pyproject.toml plus one `uv lock` are generated, then uv2nix builds
+# the env. This is the single-value form.
+isolation: nix

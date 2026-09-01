@@ -1,0 +1,119 @@
+{
+  "target": "toi-1337b",
+  "methods": [
+    "biased",
+    "gaussian",
+    "mcmc",
+    "nested"
+  ],
+  "pairwise": [
+    {
+      "pair": [
+        "biased",
+        "gaussian"
+      ],
+      "depth": {
+        "wasserstein": 0.000305,
+        "energy": 0.021227929715353776,
+        "jensen_shannon": 0.8325546111405331,
+        "hellinger": 0.9485677526006362
+      },
+      "duration_h": {
+        "wasserstein": 0.41500000000000015,
+        "energy": 0.81891696770796,
+        "jensen_shannon": 0.832554611142028,
+        "hellinger": 0.9921963400848003
+      }
+    },
+    {
+      "pair": [
+        "biased",
+        "mcmc"
+      ],
+      "depth": {
+        "wasserstein": 0.00028499999999999993,
+        "energy": 0.02026388412915944,
+        "jensen_shannon": 0.832554611140533,
+        "hellinger": 0.9315087784333597
+      },
+      "duration_h": {
+        "wasserstein": 0.375,
+        "energy": 0.7685213074469698,
+        "jensen_shannon": 0.8325546111415295,
+        "hellinger": 0.9835143587649042
+      }
+    },
+    {
+      "pair": [
+        "biased",
+        "nested"
+      ],
+      "depth": {
+        "wasserstein": 0.00029499999999999996,
+        "energy": 0.02075150596944713,
+        "jensen_shannon": 0.832554611140533,
+        "hellinger": 0.9405236603923789
+      },
+      "duration_h": {
+        "wasserstein": 0.39500000000000013,
+        "energy": 0.7941190087134294,
+        "jensen_shannon": 0.8325546111415296,
+        "hellinger": 0.988554472369408
+      }
+    },
+    {
+      "pair": [
+        "gaussian",
+        "mcmc"
+      ],
+      "depth": {
+        "wasserstein": 2.0000000000000052e-05,
+        "energy": 0.0022008521077073835,
+        "jensen_shannon": 0.2943525056226238,
+        "hellinger": 0.15249509354400284
+      },
+      "duration_h": {
+        "wasserstein": 0.040000000000000036,
+        "energy": 0.13578475614000288,
+        "jensen_shannon": 0.41627730557001735,
+        "hellinger": 0.29970706289579013
+      }
+    },
+    {
+      "pair": [
+        "gaussian",
+        "nested"
+      ],
+      "depth": {
+        "wasserstein": 1.0000000000000026e-05,
+        "energy": 0.0011180339887498995,
+        "jensen_shannon": 0.20813865278500857,
+        "hellinger": 0.07658384801568323
+      },
+      "duration_h": {
+        "wasserstein": 0.020000000000000018,
+        "energy": 0.06959705453537537,
+        "jensen_shannon": 0.2943525056226238,
+        "hellinger": 0.15249509354400248
+      }
+    },
+    {
+      "pair": [
+        "mcmc",
+        "nested"
+      ],
+      "depth": {
+        "wasserstein": 1.0000000000000026e-05,
+        "energy": 0.0011180339887498995,
+        "jensen_shannon": 0.20813865278500857,
+        "hellinger": 0.07658384801568323
+      },
+      "duration_h": {
+        "wasserstein": 0.020000000000000018,
+        "energy": 0.06959705453537537,
+        "jensen_shannon": 0.2943525056226238,
+        "hellinger": 0.15249509354400248
+      }
+    }
+  ]
+}

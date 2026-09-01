@@ -1,0 +1,2 @@
+# Downloads each target's light curve from the data archive.
+role: transform   # reads one input folder, writes one output folder

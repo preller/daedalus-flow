@@ -1,0 +1,15 @@
+# wide4_repeat: brancher x4, sink = repeated transform (4 sink instances);
+# uncollected sibling branches allowed. Roles live in each module's dae-module.yaml.
+name: wide4_repeat
+modules:
+  - id: src
+  - id: b_a
+    depends: [src]
+  - id: b_b
+    depends: [src]
+  - id: b_c
+    depends: [src]
+  - id: b_d
+    depends: [src]
+  - id: sink
+    depends: [b_a, b_b, b_c, b_d]

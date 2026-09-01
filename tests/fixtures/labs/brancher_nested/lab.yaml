@@ -1,0 +1,22 @@
+# brancher_nested: every module is a transform; root fans into l and r, and each
+# of those fans into two more, so the branchers are root, l and r. Only the
+# brancher unit tests read it; no module body ever runs.
+name: brancher_nested
+
+# Roles live in each module's dae-module.yaml (all transform here).
+modules:
+  - id: root
+
+  - id: l
+    depends: [root]
+  - id: r
+    depends: [root]
+
+  - id: l1
+    depends: [l]
+  - id: l2
+    depends: [l]
+  - id: r1
+    depends: [r]
+  - id: r2
+    depends: [r]

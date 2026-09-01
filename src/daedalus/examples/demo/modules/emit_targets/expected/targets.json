@@ -1,0 +1,23 @@
+[
+  {
+    "target": "gj-1214b",
+    "period_days": 1.58,
+    "rp_rstar": 0.1175,
+    "duration_h": 0.87,
+    "snr": 18.4
+  },
+  {
+    "target": "hd-209458b",
+    "period_days": 3.525,
+    "rp_rstar": 0.1213,
+    "duration_h": 3.03,
+    "snr": 42.1
+  },
+  {
+    "target": "wasp-39b",
+    "period_days": 4.055,
+    "rp_rstar": 0.1457,
+    "duration_h": 2.8,
+    "snr": 27.6
+  }
+]

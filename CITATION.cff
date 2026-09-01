@@ -1,0 +1,27 @@
+# TODO: set version and date-released at the first tag
+cff-version: 1.2.0
+message: >-
+  If you use daedalus-flow in academic work, please cite it using this
+  metadata. See the "How to cite" section of the README.
+title: "daedalus-flow"
+abstract: >-
+  daedalus-flow (the dae command) is a reproducible analysis-pipeline framework,
+  "labs of modules", for data-intensive science, with a focus on astronomy and
+  exoplanet / space-science workflows.
+type: software
+authors:
+  - given-names: Patricio
+    family-names: Reller
+    affiliation: "Centre for Data Intensive Science and Industry (DISI), Department of Physics and Astronomy, University College London"
+    orcid: "https://orcid.org/0000-0003-3161-9239"
+version: "0.1.0"
+date-released: "2026-06-18"
+license: Apache-2.0
+url: "https://github.com/preller/daedalus-flow"
+repository-code: "https://github.com/preller/daedalus-flow"
+keywords:
+  - reproducibility
+  - data pipeline
+  - workflow
+  - astronomy
+  - exoplanets

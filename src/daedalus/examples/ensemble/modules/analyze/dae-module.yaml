@@ -1,0 +1,2 @@
+# Scores one target's value.
+role: transform   # reads one input folder, writes one output folder

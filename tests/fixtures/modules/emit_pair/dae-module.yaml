@@ -1,0 +1,2 @@
+# Reads the seed table and starts one Flight per entry.
+role: emitter   # fans the input rows out into separate per-entry Flights

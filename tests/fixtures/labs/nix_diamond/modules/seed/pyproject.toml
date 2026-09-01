@@ -1,0 +1,10 @@
+[project]
+name = "nixdiamond-seed"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = []
+
+# A uv virtual project, not a package: uv2nix builds a deps-only env, so the
+# stdlib-only seed gets a minimal nix env (python plus daedalus via PYTHONPATH).
+[tool.uv]
+package = false

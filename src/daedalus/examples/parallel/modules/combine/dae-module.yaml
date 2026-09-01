@@ -1,0 +1,2 @@
+# Waits for all four branches, then merges their statistics into one summary.
+role: walk_collector   # the barrier: converges the parallel Walks

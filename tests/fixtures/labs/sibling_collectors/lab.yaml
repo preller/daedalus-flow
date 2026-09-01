@@ -1,0 +1,28 @@
+# sibling_collectors: exoplanet shape at M=1: emitter, brancher x4, three sibling walk_collectors, flight_collector, sink.
+#
+# Roles live in each module's dae-module.yaml.
+name: sibling_collectors
+modules:
+  - id: emit
+  - id: prep
+    depends: [emit]
+  - id: split
+    depends: [prep]
+  - id: fit_a
+    depends: [split]
+  - id: fit_b
+    depends: [split]
+  - id: fit_c
+    depends: [split]
+  - id: fit_d
+    depends: [split]
+  - id: coll_a
+    depends: [fit_a, fit_b, fit_c, fit_d]
+  - id: coll_b
+    depends: [fit_a, fit_b, fit_c, fit_d]
+  - id: coll_c
+    depends: [fit_a, fit_b, fit_c, fit_d]
+  - id: fcollect
+    depends: [coll_a, coll_b, coll_c]
+  - id: sink
+    depends: [fcollect]

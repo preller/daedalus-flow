@@ -1,0 +1,9 @@
+# science_nix: solve imports numpy and scipy and touches scipy.linalg, which
+# pulls the OpenBLAS and Fortran system closure. Under isolation nix the uv2nix
+# closure carries those libs, so the module runs without any LD_LIBRARY_PATH shim.
+name: science_nix
+
+isolation: nix
+
+modules:
+  - id: solve

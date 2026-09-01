@@ -1,0 +1,1 @@
+role: walk_collector   # only ONE parent (src) -> < 2 -> walk_collector_solo

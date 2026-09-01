@@ -1,0 +1,2 @@
+# Reads the input word once and hands it to both render branches.
+role: transform   # the brancher: one input, two onward branches

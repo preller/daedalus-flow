@@ -1,0 +1,69 @@
+# budget_blowup: eleven nested width-2 branchers expand past the 1024 walk budget.
+# validate refuses this lab before any module body is read.
+name: budget_blowup
+modules:
+  - id: b00
+  - id: cia0
+    depends: [b00]
+  - id: cib0
+    depends: [b00]
+  - id: b01
+    depends: [cia0, cib0]
+  - id: cia1
+    depends: [b01]
+  - id: cib1
+    depends: [b01]
+  - id: b02
+    depends: [cia1, cib1]
+  - id: cia2
+    depends: [b02]
+  - id: cib2
+    depends: [b02]
+  - id: b03
+    depends: [cia2, cib2]
+  - id: cia3
+    depends: [b03]
+  - id: cib3
+    depends: [b03]
+  - id: b04
+    depends: [cia3, cib3]
+  - id: cia4
+    depends: [b04]
+  - id: cib4
+    depends: [b04]
+  - id: b05
+    depends: [cia4, cib4]
+  - id: cia5
+    depends: [b05]
+  - id: cib5
+    depends: [b05]
+  - id: b06
+    depends: [cia5, cib5]
+  - id: cia6
+    depends: [b06]
+  - id: cib6
+    depends: [b06]
+  - id: b07
+    depends: [cia6, cib6]
+  - id: cia7
+    depends: [b07]
+  - id: cib7
+    depends: [b07]
+  - id: b08
+    depends: [cia7, cib7]
+  - id: cia8
+    depends: [b08]
+  - id: cib8
+    depends: [b08]
+  - id: b09
+    depends: [cia8, cib8]
+  - id: cia9
+    depends: [b09]
+  - id: cib9
+    depends: [b09]
+  - id: b10
+    depends: [cia9, cib9]
+  - id: cia10
+    depends: [b10]
+  - id: cib10
+    depends: [b10]

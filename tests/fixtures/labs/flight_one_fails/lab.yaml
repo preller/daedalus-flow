@@ -1,0 +1,10 @@
+# flight_one_fails: emit -> work -> gather, the emitter_range5 shape. The roster
+# is [10, 20, 30], so M=3; work raises on item 20, the middle flight, and gather
+# never runs because its parent flight never completes. It keeps the lab valid.
+name: flight_one_fails
+modules:
+  - id: emit
+  - id: work
+    depends: [emit]
+  - id: gather
+    depends: [work]

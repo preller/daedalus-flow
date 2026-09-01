@@ -1,0 +1,10 @@
+# chain_plain: linear chain of three transforms; M=1 degenerate walk.
+#
+# Roles live in each module's dae-module.yaml.
+name: chain_plain
+modules:
+  - id: step_a
+  - id: step_b
+    depends: [step_a]
+  - id: step_c
+    depends: [step_b]

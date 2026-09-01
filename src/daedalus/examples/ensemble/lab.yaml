@@ -1,0 +1,13 @@
+# The ensemble example fans one input across many targets. The emitter starts one
+# Flight per target, every later step runs once per Flight, and the flight
+# collector gathers all the Flights into one summary.
+name: ensemble
+
+modules:
+  - id: emit
+
+  - id: analyze
+    depends: [emit]
+
+  - id: collect
+    depends: [analyze]

@@ -1,0 +1,7 @@
+# bad_module_id: a module id contains the reserved instance separator @.
+# validate refuses this lab before any module body is read.
+name: bad_module_id
+modules:
+  - id: a
+  - id: fit@home
+    depends: [a]

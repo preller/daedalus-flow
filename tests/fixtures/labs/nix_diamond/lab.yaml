@@ -1,0 +1,19 @@
+# nix_diamond: seed fans into two sibling branches, fig and art, and join
+# converges them. Each branch declares a different library in its own
+# pyproject.toml and uv.lock, so under isolation nix each sees only its own lib.
+name: nix_diamond
+
+# isolation nix builds a per-module env with uv2nix from the committed lock and
+# runs the shim as `nix shell <flakeref>#env -c python`; max_workers only sets
+# the concurrency.
+isolation: nix
+max_workers: 2
+
+modules:
+  - id: seed
+  - id: fig
+    depends: [seed]
+  - id: art
+    depends: [seed]
+  - id: join
+    depends: [fig, art]

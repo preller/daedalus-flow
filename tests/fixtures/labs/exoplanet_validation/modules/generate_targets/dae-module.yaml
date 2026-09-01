@@ -1,0 +1,2 @@
+# Reads the target list and starts one run per target.
+role: emitter   # fans the target rows out into one Flight per target

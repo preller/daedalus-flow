@@ -1,0 +1,16 @@
+# wide4_join: brancher x4 into one walk_collector (in-degree 4); M=4.
+#
+# Roles live in each module's dae-module.yaml.
+name: wide4_join
+modules:
+  - id: src
+  - id: b_a
+    depends: [src]
+  - id: b_b
+    depends: [src]
+  - id: b_c
+    depends: [src]
+  - id: b_d
+    depends: [src]
+  - id: join
+    depends: [b_a, b_b, b_c, b_d]

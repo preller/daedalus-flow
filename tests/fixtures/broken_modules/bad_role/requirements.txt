@@ -1,0 +1,1 @@
+# No third-party dependencies; this fixture exercises role validation only.

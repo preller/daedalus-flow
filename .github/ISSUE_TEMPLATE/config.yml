@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://daedalus-flow.readthedocs.io
+    about: Guides and reference.

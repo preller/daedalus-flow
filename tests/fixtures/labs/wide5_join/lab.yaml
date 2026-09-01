@@ -1,0 +1,18 @@
+# wide5_join: brancher x5 into one walk_collector (in-degree 5); M=5.
+#
+# Roles live in each module's dae-module.yaml.
+name: wide5_join
+modules:
+  - id: src
+  - id: b_a
+    depends: [src]
+  - id: b_b
+    depends: [src]
+  - id: b_c
+    depends: [src]
+  - id: b_d
+    depends: [src]
+  - id: b_e
+    depends: [src]
+  - id: join
+    depends: [b_a, b_b, b_c, b_d, b_e]

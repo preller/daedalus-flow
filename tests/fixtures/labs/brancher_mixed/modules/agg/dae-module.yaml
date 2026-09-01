@@ -1,0 +1,1 @@
+role: walk_collector   # collector successor of split (does not count toward branching)

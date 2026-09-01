@@ -1,0 +1,10 @@
+# solo_agg is a walk_collector with one parent, so `dae lab validate` must
+# resolve walk_collector_solo. The check reads the on-disk dae-module.yaml role;
+# this lab.yaml carries no `type:` field, so a recipe-only check would not fire.
+name: walk_collector_solo
+
+modules:
+  - id: src
+
+  - id: solo_agg
+    depends: [src]

@@ -1,0 +1,2 @@
+# Overlays the four fitted transit models on the observed light curve.
+role: walk_collector   # combines the four method Walks within one target

@@ -1,0 +1,14 @@
+# repeat_then_collect: repeated transform then a walk_collector (static in-degree 1, token group 2); M=2.
+#
+# Roles live in each module's dae-module.yaml.
+name: repeat_then_collect
+modules:
+  - id: seed
+  - id: left
+    depends: [seed]
+  - id: right
+    depends: [seed]
+  - id: d
+    depends: [left, right]
+  - id: join
+    depends: [d]

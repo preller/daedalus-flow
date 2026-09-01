@@ -1,0 +1,2 @@
+# Builds one summary table across all targets.
+role: flight_collector   # combines the results from every target

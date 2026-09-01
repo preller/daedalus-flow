@@ -1,0 +1,13 @@
+# partial_group: walk_collector over 2 of a brancher's 3 branches (incomplete group).
+# validate refuses this lab before any module body is read.
+name: partial_group
+modules:
+  - id: src
+  - id: a
+    depends: [src]
+  - id: b
+    depends: [src]
+  - id: c
+    depends: [src]
+  - id: join
+    depends: [a, b]

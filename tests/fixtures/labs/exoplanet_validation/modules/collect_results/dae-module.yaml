@@ -1,0 +1,2 @@
+# The sole sink; files the whole run into one stable results tree.
+role: transform   # one upstream (already converged), so one input -> one output

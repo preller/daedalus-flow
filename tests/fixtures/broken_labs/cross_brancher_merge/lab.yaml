@@ -1,0 +1,19 @@
+# cross_brancher_merge: walk_collector over one branch from each of two different branchers.
+# validate refuses this lab before any module body is read.
+name: cross_brancher_merge
+modules:
+  - id: src
+  - id: ba
+    depends: [src]
+  - id: bb
+    depends: [src]
+  - id: ca1
+    depends: [ba]
+  - id: ca2
+    depends: [ba]
+  - id: cb1
+    depends: [bb]
+  - id: cb2
+    depends: [bb]
+  - id: join
+    depends: [ca1, cb1]

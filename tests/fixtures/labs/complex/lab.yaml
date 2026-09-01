@@ -1,0 +1,64 @@
+# The complex lab is a rich walk-DAG that validate accepts. It chains, on one
+# flight, a nested X/Y collection under an outer collector, a token-solo collector,
+# sibling collectors criss-crossed, and an emitter/flight_collector frame.
+name: complex
+modules:
+  - id: module_A
+  - id: module_B
+    depends: [module_A]
+  - id: module_C
+    depends: [module_B]
+  - id: module_D
+    depends: [module_B]
+  - id: module_E
+    depends: [module_C]
+  - id: module_F
+    depends: [module_C]
+  - id: module_G
+    depends: [module_C]
+  - id: module_H
+    depends: [module_D]
+  - id: module_I
+    depends: [module_D]
+  - id: module_J
+    depends: [module_F]
+  - id: module_K
+    depends: [module_G]
+  - id: module_L
+    depends: [module_K]
+  - id: module_M
+    depends: [module_K]
+  - id: module_N
+    depends: [module_L, module_M]
+  - id: module_O
+    depends: [module_I]
+  - id: module_P
+    depends: [module_E, module_J, module_N]
+  - id: module_Q
+    depends: [module_H, module_O]
+  - id: module_R
+    depends: [module_P, module_Q]
+  - id: module_S
+    depends: [module_R]
+  - id: module_T
+    depends: [module_S]
+  - id: module_U
+    depends: [module_S]
+  - id: module_V
+    depends: [module_T, module_U]
+  - id: module_W
+    depends: [module_V]
+  - id: module_X
+    depends: [module_W]
+  - id: module_Y
+    depends: [module_X]
+  - id: module_Z
+    depends: [module_X]
+  - id: module_AA
+    depends: [module_Y, module_Z]
+  - id: module_AB
+    depends: [module_Y, module_Z]
+  - id: module_AC
+    depends: [module_AA, module_AB]
+  - id: module_AD
+    depends: [module_AC]
